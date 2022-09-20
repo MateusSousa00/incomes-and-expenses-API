@@ -21,14 +21,14 @@ class ExpenseController {
   };
 
   static inputExpense = (req, res) => {
-    let expenses = new expenses(req.body);
-    expenses.save((err) => {
+    let expense = new expenses(req.body);
+    expense.save((err) => {
       if (err) {
         res
           .status(500)
-          .send({ message: `${err.message} - failed to input Expenses.` });
+          .send({ message: `${err.message} - failed to input expenses.` });
       } else {
-        res.status(201).send(expenses.toJSON());
+        res.status(201).send(expense.toJSON());
       }
     });
   };
@@ -39,7 +39,7 @@ class ExpenseController {
       if (err) {
         res.status(500).send({ message: err.message });
       } else {
-        res.status(200).send({ message: "Expenses updated sucessfully" });
+        res.status(200).send({ message: "Expense updated sucessfully" });
       }
     });
   };
@@ -50,7 +50,7 @@ class ExpenseController {
       if (err) {
         res.status(500).send({ message: err.message });
       } else {
-        res.status(200).send({ message: "Expenses deleted sucessfully" });
+        res.status(200).send({ message: "Expense deleted sucessfully" });
       }
     });
   };
